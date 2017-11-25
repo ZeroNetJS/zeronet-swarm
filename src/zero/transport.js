@@ -1,14 +1,14 @@
-"use strict"
+'use strict'
 
-const once = require("once")
-const each = require("async/each")
+const once = require('once')
+const each = require('async/each')
 const parallel = require('async/parallel')
 
-function dialables(tp, multiaddrs) {
+function dialables (tp, multiaddrs) {
   return tp.filter(multiaddrs)
 }
 
-function createListeners(transport, ma, handler) {
+function createListeners (transport, ma, handler) {
   return dialables(transport, ma).map((ma) => {
     return (cb) => {
       const done = once(cb)
@@ -27,7 +27,7 @@ function createListeners(transport, ma, handler) {
   })
 }
 
-function closeListeners(transport, callback) {
+function closeListeners (transport, callback) {
   parallel(transport.listeners.map((listener) => {
     return (cb) => {
       listener.close(cb)
@@ -35,18 +35,18 @@ function closeListeners(transport, callback) {
   }), callback)
 }
 
-module.exports = function ZeroSwarmTransport(swarm) {
+module.exports = function ZeroSwarmTransport (swarm) {
   const self = swarm
   const tr = self.transport
 
-  function listen(cb) {
+  function listen (cb) {
     each(Object.keys(tr), (t, next) =>
       parallel(createListeners(tr[t], self.multiaddrs, self.proto.upgradeConn({
         isServer: true
       })), next), cb)
   }
 
-  function unlisten(cb) {
+  function unlisten (cb) {
     each(Object.keys(tr), (t, next) =>
       parallel(closeListeners(tr[t]), next), cb)
   }

@@ -31,10 +31,10 @@
     "url": "https://github.com/ZeroNetJS/zeronet-js/issues"
   },
   "browser": {
-    "libp2p-mdns": "./stub.js",
-    "libp2p-kad-dht": "./stub.js",
-    "nat-upnp": "./stub.js",
-    "./src/zero/nat": "./stub.js"
+    "libp2p-mdns": "./src/stub.js",
+    "libp2p-kad-dht": "./src/stub.js",
+    "nat-upnp": "./src/stub.js",
+    "./src/zero/nat": "./src/stub.js"
   },
   "homepage": "https://github.com/ZeroNetJS/zeronet-js#readme",
   "dependencies": {
@@ -58,8 +58,8 @@
     "peer-info": "^0.11.1",
     "request": "^2.83.0",
     "uuid": "^3.1.0",
-    "zeronet-common": "file:../zeronet-common",
-    "zeronet-protocol": "file:../zeronet-protocol"
+    "zeronet-common": "^0.2.1",
+    "zeronet-protocol": "^0.0.4"
   },
   "devDependencies": {
     "aegir": "^12.2.0"
