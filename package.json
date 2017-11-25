@@ -59,7 +59,7 @@
     "request": "^2.83.0",
     "uuid": "^3.1.0",
     "zeronet-common": "^0.2.1",
-    "zeronet-protocol": "^0.0.4"
+    "zeronet-protocol": "^0.0.5"
   },
   "devDependencies": {
     "aegir": "^12.2.0"
