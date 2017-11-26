@@ -42,26 +42,33 @@ function ZeroNetSwarm (opt, zeronet) {
 
   self.dial = Dial(self.zero, self.lp2p)
 
-  protocol.handle('ping', { in: {
-    protobuf: {},
-    strict: {}
-  },
-  out: {
-    protobuf: {
-      1: [
-        'string',
-        'body'
-      ]
+  protocol.handle('ping', {
+    in: {
+      protobuf: {},
+      strict: {}
     },
-    strict: {
-      body: [
-        b => Boolean(b === 'Pong!')
-      ]
+    out: {
+      protobuf: {
+        1: [
+          'string',
+          'body'
+        ]
+      },
+      strict: {
+        body: [
+          b => Boolean(b === 'Pong!')
+        ]
+      }
     }
-  }
   }, (data, cb) => cb(null, {
     body: 'pong'
   }))
+
+  protocol.handle('_', {
+    in: {protobuf: {}, strict: {}},
+    out: {protobuf: {}, strict: {}},
+    zero_only: true
+  }, (data, cb) => cb('Invalid command!')) // eslint-disable-line standard/no-callback-literal
 }
 
 module.exports = ZeroNetSwarm
