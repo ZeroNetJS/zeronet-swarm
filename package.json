@@ -25,10 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZeroNetJS/zeronet-js.git"
+    "url": "git+https://github.com/ZeroNetJS/zeronet-swarm.git"
   },
   "bugs": {
-    "url": "https://github.com/ZeroNetJS/zeronet-js/issues"
+    "url": "https://github.com/ZeroNetJS/zeronet-swarm/issues"
   },
   "browser": {
     "libp2p-mdns": "./src/stub.js",
@@ -36,7 +36,7 @@
     "nat-upnp": "./src/stub.js",
     "./src/zero/nat": "./src/stub.js"
   },
-  "homepage": "https://github.com/ZeroNetJS/zeronet-js#readme",
+  "homepage": "https://github.com/ZeroNetJS/zeronet-swarm#readme",
   "dependencies": {
     "async": "~2.6.0",
     "interface-connection": "~0.3.2",
