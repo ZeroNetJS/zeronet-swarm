@@ -2,7 +2,7 @@
 
 const multiaddr = require('multiaddr')
 const Peer = require('peer-info')
-const ip2multi = require('zeronet-common/src/network/ip2multi')
+const ip2multi = require('../lib/ip2multi')
 
 const debug = require('debug')
 const log = debug('zeronet:swarm:dial')

@@ -11,7 +11,7 @@ const LimitDialer = require('libp2p-swarm/src/limit-dialer')
 
 const Id = require('peer-id')
 const Peer = require('peer-info')
-const ip2multi = require('zeronet-common/src/network/ip2multi')
+const ip2multi = require('../lib/ip2multi')
 
 function dialables (tp, multiaddrs) {
   return tp.filter(multiaddrs)
