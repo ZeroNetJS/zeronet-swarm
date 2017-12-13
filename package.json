@@ -4,7 +4,7 @@
   "description": "libp2p based ZeroNet swarm",
   "main": "src/index.js",
   "scripts": {
-    "test": "aegir test",
+    "test": "aegir test -t node",
     "lint": "aegir lint",
     "build": "aegir build",
     "test:node": "aegir test -t node",
@@ -40,7 +40,7 @@
   "dependencies": {
     "async": "~2.6.0",
     "interface-connection": "~0.3.2",
-    "libp2p": "~0.13.1",
+    "libp2p": "~0.13.3",
     "libp2p-kad-dht": "~0.6.0",
     "libp2p-mdns": "~0.9.1",
     "libp2p-multiplex": "~0.5.0",
@@ -48,18 +48,18 @@
     "libp2p-secio": "~0.8.1",
     "libp2p-spdy": "~0.11.0",
     "libp2p-swarm": "~0.33.2",
-    "libp2p-websocket-star-multi": "~0.2.1",
+    "libp2p-websocket-star-multi": "~0.3.0",
     "mafmt": "~3.0.2",
     "multiaddr": "~3.0.1",
     "multiplex": "github:mkg20001/multiplex",
     "nat-upnp": "~1.1.1",
     "once": "~1.4.0",
-    "peer-id": "~0.10.2",
-    "peer-info": "~0.11.1",
+    "peer-id": "~0.10.3",
+    "peer-info": "~0.11.3",
     "request": "~2.83.0",
     "uuid": "~3.1.0",
     "zeronet-common": "~0.2.1",
-    "zeronet-protocol": "~0.0.6"
+    "zeronet-protocol": "~0.1.2"
   },
   "devDependencies": {
     "aegir": "^12.2.0"

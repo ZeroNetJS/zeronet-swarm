@@ -49,10 +49,7 @@ function ZeroNetSwarm (opt, zeronet) {
     },
     out: {
       protobuf: {
-        1: [
-          'string',
-          'body'
-        ]
+        1: 'string body'
       },
       strict: {
         body: [
@@ -61,7 +58,7 @@ function ZeroNetSwarm (opt, zeronet) {
       }
     }
   }, (data, cb) => cb(null, {
-    body: 'pong'
+    body: 'Pong!'
   }))
 
   protocol.handle('_', {
