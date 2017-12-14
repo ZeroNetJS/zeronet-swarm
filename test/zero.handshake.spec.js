@@ -7,7 +7,7 @@ const multiaddr = require('multiaddr')
 
 let swarm
 
-describe('handshake', () => {
+describe('zero handshake', () => {
   before(done => {
     createNode({
       zero: {

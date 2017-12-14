@@ -7,7 +7,7 @@ const createNode = require('./utils').createNode
 
 let swarm
 
-describe('handshake', () => {
+describe('lp2p handshake', () => {
   before(done => {
     createNode({
       zero: {

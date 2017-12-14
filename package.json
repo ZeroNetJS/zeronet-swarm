@@ -34,31 +34,32 @@
     "libp2p-mdns": "./src/stub.js",
     "libp2p-kad-dht": "./src/stub.js",
     "nat-upnp": "./src/stub.js",
-    "./src/zero/nat": "./src/stub.js"
+    "./src/zero/nat": "./src/stub.js",
+    "libp2p-tcp": "./test/libp2p-mock.js"
   },
   "homepage": "https://github.com/ZeroNetJS/zeronet-swarm#readme",
   "dependencies": {
     "async": "~2.6.0",
     "interface-connection": "~0.3.2",
     "ip": "^1.1.5",
-    "libp2p": "~0.13.3",
+    "libp2p": "~0.14.0",
     "libp2p-kad-dht": "~0.6.0",
     "libp2p-mdns": "~0.9.1",
-    "libp2p-multiplex": "~0.5.0",
+    "libp2p-multiplex": "~0.5.1",
     "libp2p-railing": "~0.7.1",
     "libp2p-secio": "~0.8.1",
     "libp2p-spdy": "~0.11.0",
-    "libp2p-swarm": "~0.33.2",
+    "libp2p-swarm": "~0.34.0",
     "libp2p-websocket-star-multi": "~0.3.0",
     "mafmt": "~3.0.2",
     "multiaddr": "~3.0.1",
     "nat-upnp": "~1.1.1",
     "once": "~1.4.0",
     "peer-id": "~0.10.3",
-    "peer-info": "~0.11.3",
+    "peer-info": "~0.11.4",
     "request": "~2.83.0",
     "uuid": "~3.1.0",
-    "zeronet-protocol": "~0.1.2"
+    "zeronet-protocol": "~0.1.4"
   },
   "devDependencies": {
     "aegir": "^12.2.0",
