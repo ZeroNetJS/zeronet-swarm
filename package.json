@@ -42,7 +42,7 @@
     "async": "~2.6.0",
     "interface-connection": "~0.3.2",
     "ip": "^1.1.5",
-    "libp2p": "~0.14.0",
+    "libp2p": "~0.14.3",
     "libp2p-kad-dht": "~0.6.0",
     "libp2p-mdns": "~0.9.1",
     "libp2p-multiplex": "~0.5.1",
@@ -55,14 +55,14 @@
     "multiaddr": "~3.0.1",
     "nat-upnp": "~1.1.1",
     "once": "~1.4.0",
-    "peer-id": "~0.10.3",
+    "peer-id": "~0.10.4",
     "peer-info": "~0.11.4",
     "request": "~2.83.0",
     "uuid": "~3.1.0",
-    "zeronet-protocol": "~0.1.4"
+    "zeronet-protocol": "~0.1.5"
   },
   "devDependencies": {
-    "aegir": "^12.2.0",
+    "aegir": "^12.3.0",
     "zeronet-common": "^0.2.1"
   },
   "directories": {

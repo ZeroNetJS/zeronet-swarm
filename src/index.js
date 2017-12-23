@@ -60,12 +60,6 @@ function ZeroNetSwarm (opt, zeronet) {
   }, (data, cb) => cb(null, {
     body: 'Pong!'
   }))
-
-  protocol.handle('_', {
-    in: {protobuf: {}, strict: {}},
-    out: {protobuf: {}, strict: {}},
-    zero_only: true
-  }, (data, cb) => cb('Invalid command!')) // eslint-disable-line standard/no-callback-literal
 }
 
 module.exports = ZeroNetSwarm
