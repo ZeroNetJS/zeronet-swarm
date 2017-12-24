@@ -103,7 +103,10 @@ function Libp2pSwarm (opt, protocol, zeronet) {
     }
   ], cb)
 
-  self.stop = cb => lp2p.stop(cb)
+  self.stop = cb => {
+    delete lp2p.swarm.muxedConns['']
+    lp2p.stop(cb)
+  }
 
   self.dial = (peer, proto, cb) => lp2p.dial(peer, proto, cb)
 
