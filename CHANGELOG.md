@@ -1,3 +1,13 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/ZeroNetJS/zeronet-swarm/compare/v0.1.2...v0.1.3) (2017-12-24)
+
+
+### Features
+
+* Relay ([5c3506c](https://github.com/ZeroNetJS/zeronet-swarm/commit/5c3506c))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/ZeroNetJS/zeronet-swarm/compare/v0.1.1...v0.1.2) (2017-12-23)
 
