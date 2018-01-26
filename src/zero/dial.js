@@ -17,14 +17,6 @@ function dialables (tp, multiaddrs) {
   return tp.filter(multiaddrs)
 }
 
-function peerInfoFromMultiaddrs (addrs) {
-  const b58 = addrs[0].split('/')[0]
-  const id = Id.createFromB58String(b58)
-  const info = new Peer(id)
-  addrs.forEach(addr => info.multiaddrs.add(multiaddr(addr)))
-  return info
-}
-
 function getMultiaddrList (pi) {
   if (Peer.isPeerInfo(pi)) { return Peer.multiaddrs.toArray() }
 
@@ -83,13 +75,6 @@ module.exports = function ZeroSwarmDial (swarm, lp2p) {
     }
     const jobs = sortByTransport(tr, addrs)
 
-    function finishLibp2p (peer, cb) {
-      lp2p.dial(peer, err => {
-        if (err) return cb(err)
-        cb(null, null, peer)
-      })
-    }
-
     function finish (multiaddr, conn, cb) {
       upgradeClient(conn, (err, client, upgradeable) => {
         if (err) return cb(err)
@@ -99,9 +84,7 @@ module.exports = function ZeroSwarmDial (swarm, lp2p) {
           conns[multiaddr] = conn
           return cb(null, client)
         } else {
-          const peer = peerInfoFromMultiaddrs(upgradeable)
-          addrs.map(a => a.toString()).forEach(a => (conns[a] = peer))
-          finishLibp2p(peer, cb)
+          cb(null, null, upgradeable)
         }
       })
     }
@@ -132,7 +115,7 @@ module.exports = function ZeroSwarmDial (swarm, lp2p) {
     }
   }
 
-  self.dial = (peer, cmd, data, cb) => { // TODO: handle upgrading
+  self.dial = (peer, cmd, data, cb) => {
     if (typeof cmd === 'function') {
       cb = cmd
       cmd = null
@@ -142,11 +125,15 @@ module.exports = function ZeroSwarmDial (swarm, lp2p) {
       cb = data
       data = {}
     }
-    self.connect(peer, (err, client, peerInfo) => {
+
+    self.connect(peer, (err, client, upgrade) => {
       if (err) return cb(err)
-      if (peerInfo) {
-        if (!cmd) return cb(null, null, peerInfo)
-        else lp2p.cmd(peerInfo, cmd, data, cb)
+      if (upgrade) {
+        const id = upgrade._lp2p_id
+        const addr = lp2p.up.simulateDial(upgrade, id)
+        const pi = new Peer(Id.createFromB58String(id))
+        pi.multiaddrs.add(addr)
+        lp2p.cmd(pi, cmd, data, cb)
       } else {
         if (!cmd) return cb(null, client)
         if (!client.cmd[cmd]) return cb(new Error('CMD Unsupported!')) // TODO: use a real method for that

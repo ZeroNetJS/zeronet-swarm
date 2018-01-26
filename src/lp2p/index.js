@@ -31,10 +31,11 @@ function Libp2pSwarm (opt, protocol, zeronet) {
 
   log('creating libp2p swarm')
 
-  const peerInfo = new PeerInfo(opt.id);
-  (opt.listen || []).forEach(addr => peerInfo.multiaddrs.add(multiaddr(addr)))
+  const peerInfo = new PeerInfo(opt.id)
+  self.idB58 = opt.id.toB58String()
+  let listen = opt.listen || []
+  listen.forEach(addr => peerInfo.multiaddrs.add(multiaddr(addr)))
   self.adv = []
-  // peerInfo.multiaddrs.forEach(ma => )
   let dht
 
   let discovery = []
@@ -77,7 +78,17 @@ function Libp2pSwarm (opt, protocol, zeronet) {
     dht
   }
 
-  const lp2p = self.lp2p = self.libp2p = new Libp2p(modules, peerInfo /*, peerBook */)
+  const options = {
+    /* relay: {
+      enabled: true,
+      hop: {
+        enabled: true,
+        active: false // passive relay
+      }
+    } */
+  }
+
+  const lp2p = self.lp2p = self.libp2p = new Libp2p(modules, peerInfo, /* peerBook */ null, options)
   const swarm = lp2p
   swarm.on('peer:discovery', pi => {
     if (pi.id.toB58String() === peerInfo.id.toB58String()) return
