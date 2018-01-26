@@ -34,7 +34,11 @@ describe('lp2p handshake', () => {
 
   it('should upgrade, handshake and ping', (cb) => {
     // swarm.lp2p.lp2p.muxedConns = {} // force re-connect
-    swarm.dial(multiaddr('/ip4/127.0.0.1/tcp/25335'), 'ping', {}, cb)
+    swarm.dial(multiaddr('/ip4/127.0.0.1/tcp/25335'), 'ping', {}, err => {
+      if (err) return cb(err)
+      if (new Error('.').stack.indexOf('src/stream/msgpack.js') !== -1) return cb(new Error('Used zeronet (non-libp2p) stream!'))
+      cb()
+    })
   })
 
   after(function (done) {

@@ -3,7 +3,7 @@
 // This transport allows upgrades from normal ZeroNet connections to libp2p connections
 
 const debug = require('debug')
-const log = debug('zeronet:swarm:lp2p-upgrade')
+const log = debug('zeronet:swarm:upgradeTransport')
 const EE = require('events').EventEmitter
 const Connection = require('interface-connection').Connection
 const setImmediate = require('async/setImmediate')

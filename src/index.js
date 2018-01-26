@@ -5,7 +5,9 @@
 // ZNv2 on *:15543
 // don't ever put 2 swarms on the same port
 
-// basics
+const debug = require('debug')
+const log = debug('zeronet:swarm')
+
 const ZeroSwarm = require('./zero')
 const Lp2pSwarm = require('./lp2p')
 const Dial = require('./dial')
@@ -13,6 +15,7 @@ const series = require('async/series')
 const Protocol = require('zeronet-protocol')
 
 function callHook (modules, hook, ...a) {
+  log('calling hook %s', hook)
   modules.forEach(m => {
     const fnc = (m.hooks || {})[hook]
     if (typeof fnc === 'function') fnc(...a)
@@ -21,6 +24,8 @@ function callHook (modules, hook, ...a) {
 
 function ZeroNetSwarm (opt, zeronet, modules) {
   const self = this
+
+  log('create')
 
   modules = modules || []
 
@@ -86,5 +91,6 @@ function ZeroNetSwarm (opt, zeronet, modules) {
 }
 
 module.exports = ZeroNetSwarm
-module.exports.ZeroSwarm = ZeroSwarm
-module.exports.Lp2pSwarm = Lp2pSwarm
+ZeroNetSwarm.ZeroSwarm = ZeroSwarm
+ZeroNetSwarm.Lp2pSwarm = Lp2pSwarm
+ZeroNetSwarm.modules = require('./modules')

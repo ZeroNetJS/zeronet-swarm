@@ -22,7 +22,7 @@ module.exports = {
         peerPool: new PeerPool()
       }
       conf.id = id
-      const swarm = new Swarm(conf, zeronet)
+      const swarm = new Swarm(conf, zeronet, Swarm.modules.all())
       zeronet.swarm = swarm
       swarm.start(err => {
         if (err) return done(err)

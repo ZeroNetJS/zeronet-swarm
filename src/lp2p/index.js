@@ -26,9 +26,6 @@ const MulticastDNS = require('libp2p-mdns')
 // dht
 const DHT = require('libp2p-kad-dht')
 
-// upgrade
-const UpgradeTransport = require('./upgrade-transport')
-
 function Libp2pSwarm (opt, protocol, zeronet) {
   const self = this
 
@@ -37,7 +34,6 @@ function Libp2pSwarm (opt, protocol, zeronet) {
   const peerInfo = new PeerInfo(opt.id)
   self.idB58 = opt.id.toB58String()
   let listen = opt.listen || []
-  listen.push('/p2p-znjs-relay') // hack for upgrade transport
   listen.forEach(addr => peerInfo.multiaddrs.add(multiaddr(addr)))
   self.adv = []
   let dht
@@ -45,9 +41,6 @@ function Libp2pSwarm (opt, protocol, zeronet) {
   let discovery = []
 
   let transport = opt.transports || []
-
-  let upgradeTransport = self.up = new UpgradeTransport()
-  transport.push(upgradeTransport)
 
   if (opt.bootstrap && opt.bootstrap.length) {
     discovery.push(new Railing(opt.bootstrap))
