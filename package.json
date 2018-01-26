@@ -59,7 +59,7 @@
     "peer-info": "~0.11.4",
     "request": "^2.83.0",
     "uuid": "^3.2.1",
-    "zeronet-protocol": "~0.1.7"
+    "zeronet-protocol": "~0.2.0"
   },
   "devDependencies": {
     "aegir": "^12.4.0",
