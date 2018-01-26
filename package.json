@@ -42,14 +42,14 @@
     "async": "^2.6.0",
     "interface-connection": "~0.3.2",
     "ip": "^1.1.5",
-    "libp2p": "~0.14.3",
+    "libp2p": "~0.15.1",
     "libp2p-kad-dht": "~0.6.0",
     "libp2p-mdns": "~0.9.1",
     "libp2p-multiplex": "~0.5.1",
     "libp2p-railing": "~0.7.1",
-    "libp2p-secio": "~0.8.1",
+    "libp2p-secio": "~0.9.0",
     "libp2p-spdy": "~0.11.0",
-    "libp2p-swarm": "~0.34.0",
+    "libp2p-swarm": "~0.35.0",
     "libp2p-websocket-star-multi": "~0.3.0",
     "mafmt": "^3.0.2",
     "multiaddr": "github:mkg20001/js-multiaddr#znjs-relay-test",
@@ -58,12 +58,11 @@
     "peer-id": "~0.10.4",
     "peer-info": "~0.11.4",
     "request": "^2.83.0",
-    "uuid": "^3.1.0",
-    "zeronet-protocol": "~0.1.6",
-    "zeronet-relay": "0.0.4"
+    "uuid": "^3.2.1",
+    "zeronet-protocol": "~0.1.7"
   },
   "devDependencies": {
-    "aegir": "^12.3.0",
+    "aegir": "^12.4.0",
     "hypercache": "^0.2.0",
     "libp2p-websockets": "^0.10.4",
     "zeronet-common": "^0.3.0"

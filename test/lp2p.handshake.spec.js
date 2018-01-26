@@ -33,6 +33,7 @@ describe('lp2p handshake', () => {
   })
 
   it('should upgrade, handshake and ping', (cb) => {
+    // swarm.lp2p.lp2p.muxedConns = {} // force re-connect
     swarm.dial(multiaddr('/ip4/127.0.0.1/tcp/25335'), 'ping', {}, cb)
   })
 

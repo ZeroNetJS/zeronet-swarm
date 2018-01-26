@@ -15,7 +15,8 @@ describe('zero handshake', () => {
           '/ip4/127.0.0.1/tcp/25335'
         ],
         crypto: false
-      }
+      },
+      lp2p: false
     }, (err, _swarm) => {
       if (err) return done(err)
       swarm = _swarm
