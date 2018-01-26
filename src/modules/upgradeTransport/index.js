@@ -5,7 +5,7 @@ const Upgrade = require('./transport')
 const debug = require('debug')
 const log = debug('zeronet:swarm:upgradeTransport')
 
-module.exports = function() {
+module.exports = function () {
   this.hooks = {
     pre: (opt) => {
       if ((opt.libp2p || opt.libp2p == null) && (opt.zero || opt.zero == null)) {
