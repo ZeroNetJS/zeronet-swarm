@@ -13,7 +13,7 @@ const multiaddr = require('multiaddr')
 
 // libp2p connection
 const SPDY = require('libp2p-spdy')
-const MULTIPLEX = require('libp2p-multiplex')
+const MPLEX = require('libp2p-mplex')
 const SECIO = require('libp2p-secio')
 
 // websocket-star
@@ -69,7 +69,7 @@ function Libp2pSwarm (opt, protocol, zeronet) {
     transport,
     connection: {
       muxer: [
-        MULTIPLEX,
+        MPLEX,
         SPDY
       ],
       crypto: [SECIO]
@@ -115,11 +115,11 @@ function Libp2pSwarm (opt, protocol, zeronet) {
   ], cb)
 
   self.stop = cb => {
-    delete lp2p.swarm.muxedConns['']
+    delete lp2p.switch.muxedConns['']
     lp2p.stop(cb)
   }
 
-  self.dial = (peer, proto, cb) => lp2p.dial(peer, proto, cb)
+  self.dial = (peer, proto, cb) => typeof proto === 'function' ? lp2p.dial(peer, cb) : lp2p.dialProtocol(peer, proto, cb)
 
   self.proto = self.protocol = new LProtocol({}, self)
 }

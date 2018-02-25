@@ -11,9 +11,9 @@ module.exports = {
       if (err) return done(err)
       if (!notcp) {
         if (conf.zero) conf.zero.transports = [new TCP()]
-        else conf.zero = {transports: [new TCP()], listen: []}
+        else if (conf.zero === null) conf.zero = {transports: [new TCP()], listen: []}
         if (conf.libp2p) conf.libp2p.transports = [new TCP()]
-        else conf.libp2p = {transports: [new TCP()], listen: []}
+        else if (conf.libp2p === null) conf.libp2p = {transports: [new TCP()], listen: []}
       }
       const zeronet = {
         rev: '0',

@@ -16,7 +16,7 @@ describe('zero handshake', () => {
         ],
         crypto: false
       },
-      lp2p: false
+      libp2p: false
     }, (err, _swarm) => {
       if (err) return done(err)
       swarm = _swarm
