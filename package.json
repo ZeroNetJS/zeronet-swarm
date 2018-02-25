@@ -57,6 +57,7 @@
     "once": "^1.4.0",
     "peer-id": "~0.10.6",
     "peer-info": "~0.11.6",
+    "pull-stream": "github:mkg20001/pull-stream",
     "request": "^2.83.0",
     "uuid": "^3.2.1",
     "zeronet-protocol": "~0.2.1"

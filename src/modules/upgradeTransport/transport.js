@@ -87,7 +87,7 @@ module.exports = class UpgradeTransport {
       setImmediate(() => cb(null, conn))
       return conn
     } else {
-      setImmediate(() => cb(new Error('Fake conn with id ' + id + 'not found!')))
+      setImmediate(() => cb(new Error('Fake conn with id ' + id + ' not found!')))
       return new Connection()
     }
   }
