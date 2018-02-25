@@ -1,3 +1,14 @@
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/ZeroNetJS/zeronet-swarm/compare/v0.2.0...v0.2.1) (2018-02-25)
+
+
+### Bug Fixes
+
+* Fix some minor bugs and upgrade packages ([93f1f95](https://github.com/ZeroNetJS/zeronet-swarm/commit/93f1f95))
+* Weird browser bug ([4a1ff03](https://github.com/ZeroNetJS/zeronet-swarm/commit/4a1ff03))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/ZeroNetJS/zeronet-swarm/compare/v0.1.4...v0.2.0) (2018-01-26)
 
