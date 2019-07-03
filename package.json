@@ -13,7 +13,9 @@
     "release-minor": "aegir release --type minor",
     "release-major": "aegir release --type major",
     "coverage": "aegir coverage",
-    "coverage-publish": "aegir coverage -u"
+    "coverage-publish": "aegir coverage -u",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "zeronet",
@@ -60,7 +62,8 @@
     "pull-stream": "github:mkg20001/pull-stream",
     "request": "^2.83.0",
     "uuid": "^3.2.1",
-    "zeronet-protocol": "~0.2.1"
+    "zeronet-protocol": "~0.2.1",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "aegir": "^13.0.5",
@@ -75,5 +78,6 @@
   },
   "contributors": [
     "mkg20001 <mkg20001@gmail.com>"
-  ]
+  ],
+  "snyk": true
 }
